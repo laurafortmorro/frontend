@@ -1,2 +1,2 @@
-# frontend
+# frontEnd
 Frontend Angular/ReactJS
