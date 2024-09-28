@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>(M4) Exercici EXTRA 2. Traductor de números.</h1>
+    <h3>Demana a l'usuari/ària un número entre 0 i 99 i mostra'l escrit en lletres (en català)</h3>
+
+    <p>Número (0-99): <input type="number" id="NUMBER" min="0" max="99"></p>
+    <p><button onclick="main()">RESULT</button></p>
+    <p id="RESULT"></p>
+
+    <script>
+        function main(){
+            let number = parseInt(document.getElementById("NUMBER").value);
+
+            let unitats = ["zero", "un", "dos", "tres", "quatre", "cinc", "sis", "set", "vuit", "nou"];
+            let deu = ["deu", "onze", "dotze", "tretze", "catorze", "quinze", "setze", "disset", "divuit", "dinou"];
+            let desenes = ["vint", "trenta", "quaranta", "cinquanta", "seixanta", "setanta", "vuitanta", "noranta"];
+
+            let result = ""; // Variable per emmagatzemar el resultat
+
+            if (number >= 0 && number <= 9) {
+                result = unitats[number]; // Per a números del 0 al 9
+            } 
+            else if (number >= 10 && number <= 19) {
+                result = deu[number - 10]; // Per a números del 10 al 19
+            } 
+            else if (number >= 20 && number <= 99) {
+                let desena = Math.floor(number / 10);
+                let unitat = number % 10;
+                
+                // Per als múltiples exactes de les desenes (20, 30, 40, etc.)
+                if (unitat === 0) {
+                    result = desenes[desena - 2]; // Ajustem l'índex per a desenes
+                } else {
+                    // Combinació de desena amb "i" si hi ha unitats (per exemple: "trenta-i-dos")
+                    if (number >= 21 && number <= 29) {
+                        result = "vint-i-" + unitats[unitat]; // Forma especial per als 20s
+                    } else {
+                        result = desenes[desena - 2] + "-" + unitats[unitat];
+                    }
+                }
+            }
+
+            // Mostrar el resultat
+            document.getElementById("RESULT").innerHTML = result;
+        }
+    </script>
+</body>
+</html>

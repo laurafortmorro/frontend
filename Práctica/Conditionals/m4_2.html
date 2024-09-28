@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nivell d'Experiencia</title>
+</head>
+<body>
+    <h1>(M4) Exercici 2. Quin nivell d'experiència té?</h1>
+    <h3> Introdueix el seu nom i el nombre d'anys que portes treballant en una empresa. <br> Es mostrarà per pantalla el seu nivell d'experiència:</h3>
+    <p>El teu nom: <input type="text" id="nom"></p>
+    <p>Anys treballats: <input type="number" id="anys"></p>
+    <button type="button" onclick="Experiencia()">RESULT</button>
+    <p id="RESULT"></p>
+
+    <script>
+        function Experiencia(){
+        let nom= document.getElementById("nom").value;
+        let experiencia= document.getElementById("anys").value;
+        let res= document.getElementById("RESULT")
+        let salutacio= `Hola ${nom}, segons els teus anys d'experiència ets `
+
+        if(experiencia >= 0 && experiencia < 2){
+            res.innerHTML= `${salutacio} Nivell principiant.`;
+        }else if(experiencia >= 2 && experiencia <= 4){
+            res.innerHTML= `${salutacio} Nivell intermedi.`;
+        }else if(experiencia > 4 && experiencia <= 7){
+            res.innerHTML=  `${salutacio} Nivell avançat.`;
+        }else if(experiencia > 7 && experiencia <= 10){
+            res.innerHTML= `${salutacio} Nivell expert.`;
+        }else if(experiencia > 10 && experiencia <= 80){
+            res.innerHTML= `${salutacio} Nivell Gurú.`;
+        }else{
+            res.innerHTML= "No s'accepten valors fora de rang, introdueix un número vàlid";
+        }
+    }
+
+    </script>
+
+    
+</body>
+</html>

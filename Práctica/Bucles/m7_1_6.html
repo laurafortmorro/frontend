@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>(M7.1.) Exercici 6. Taula de multiplicar</h1>
+    <h3>Taula de multiplicar.</h3>
+    <p>Introdueix un número del 1 al 10:<input type="number" id="number"></p>
+    <p><button onclick="taula()">Taula</button></p>
+    <p id="RESULT"></p>
+    <script>
+        function taula(){
+            let number = document.getElementById("number").value;
+            let taula = [];
+            for(let i=1;i<11;i++){
+                multiplicacio= number+"x"+i+"= "+(number*i)+'</ul>';
+                taula.push(multiplicacio)
+            }
+            document.getElementById("RESULT").innerHTML= taula;
+
+        }
+            
+    </script>
+</body>
+</html>

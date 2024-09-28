@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>(M4) Exercici 4. Escriu Números en Lletres.</h1>
+    <h3>Introdueix un número de l'1 al 10 i es mostrarà per pantalla el seu equivalent en lletres</h3>
+
+    <p>Introdueix un número: <input type="number" id="NUMBER"></p>
+
+    <p><button type="button" onclick="Convertir()">CONVERTIR</button></p>
+    <p id="RESULT"></p>
+
+    <script>
+        function Convertir(){
+            let number= document.getElementById("NUMBER").value;
+            let result= " ";
+
+            switch(number){
+                case "1":
+                    result= "u";
+                    break;
+                case "2":
+                    result= "dos";
+                    break;
+                case "3":
+                    result= "tres";
+                    break;
+                case "4":
+                    result= "quatro";
+                    break;
+                case "5":
+                    result= "cinc";
+                    break;
+                case "6":
+                    result= "sis";
+                    break;
+                case "7":
+                    result= "set";
+                    break;
+                case "8":
+                    result= "vuit";
+                    break;
+                case "9":
+                    result= "nou";
+                    break;
+                case "10":
+                    result= "deu";
+                    break;
+                default:
+                    result= "Introdueix un número entre el 1 i el 10";
+                    break
+            }
+            document.getElementById("RESULT").innerHTML= result;
+        }
+    </script>
+</body>
+</html>

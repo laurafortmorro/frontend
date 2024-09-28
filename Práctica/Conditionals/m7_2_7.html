@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calcula si l'any és de traspàs</h1>
+
+    <p><input type="number" id="ANY"></p>
+    <p><button onclick="Bisiesto()">RESULT</button></p>
+    <p id="RESULT"></p>
+
+    <script>
+        function Bisiesto(){
+        let any= Number(document.getElementById("ANY").value);
+        let message= " ";
+
+        if(any%400 == 0){
+            message= "Es bisiesto";
+
+        }else if(any%4==0 && any%100!=0){
+            message= "Es bisiesto";
+        }else{
+            message= "No es bisiesto";
+        }
+        document.getElementById("RESULT").innerHTML= message;
+    }
+    </script>
+
+</body>
+</html>

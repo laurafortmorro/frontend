@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>(M4) Exercici 3. Les paraules més boniques del diccionari.</h1>
+    <h3>Introdueix una paraula per saber si és bonica o no</h3>
+    <p>La paraula: <input type="text" id="paraula"></p>
+    <p><button type="button" onclick="Analitza()">Analitza</button></p>
+    <p id="RESULTAT"></p>
+
+    <script>
+        function Analitza(){
+            let paraula= document.getElementById("paraula").value.toUpperCase();
+            console.log(paraula);
+
+            if((paraula.length == 9 && paraula.charAt(0) === "H") || (paraula.length == 5 && paraula.charAt(0) === "P") ){
+                document.getElementById("RESULTAT").innerHTML= `La paraula ${paraula} és bonica`;
+            }else{
+                document.getElementById("RESULTAT").innerHTML= `La paraula ${paraula} no és bonica`;
+            }
+        }
+    </script>
+
+</body>
+</html>

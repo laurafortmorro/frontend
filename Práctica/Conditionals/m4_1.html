@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombres enters</title>
+</head>
+<body>
+    <h1>(M4) Exercici 1. Nombres enters</h1>
+    <h3>Introdueix dos nombres enters  i mostrarà per pantalla el major dels dos.</h3>
+
+    <p>Introdueix el primer número: <input type="number" id="numero1"></p>
+    <p>Introdueix el segon número: <input type="number" id="numero2"></p>
+
+    <p><button type="button" onclick="Comparar()">COMPARAR</button></p>
+    <p>El nombre més gran dels 2 és:</p>
+
+    <p id="RESULT"></p>
+
+    <script>
+        function Comparar(){
+            let numero1= document.getElementById("numero1").value;
+            let numero2= document.getElementById("numero2").value;
+            
+            let result= Number(numero1)>Number(numero2)? numero1 : numero2;
+            document.getElementById("RESULT").innerHTML= result;
+        }
+    </script>
+    
+</body>
+</html>

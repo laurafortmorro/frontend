@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=tgv xxxxxxx, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>El nombre és parell o imparell?</h1>
+    <h3>Introduir un número i dir si és parell o no</h3>
+    <p>introdueix un número: <input type="number" id="NUMBER"></p>
+    <p><button id="calcular" onclick="Calcular()">RESULT</button></p>
+    <p id="RESULT"></p>
+    <script>
+        function Calcular(){
+            let number= document.getElementById("NUMBER").value;
+            let result= number%2==0? "És parell": "És imparell";
+
+            document.getElementById("RESULT").innerHTML= result;
+        }
+    </script>
+</body>
+</html>

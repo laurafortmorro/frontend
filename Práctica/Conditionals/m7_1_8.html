@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Canviar Unitats</h1>
+    <h3>Crea un menú que permeti canviar d'unitats</h3>
+    <p>Introdueix un número: <input type="number" id="NUMBER"></p>
+
+    <p><label for="seleccion">Selecciona: </label>
+        <select id="seleccion">
+           <optgroup label="Canviar d'unitat">
+              <option value="1">Passar de metres a peus</option>
+              <option value="2">De peus a metres</option>
+              <option value="3">De metres a iardes</option>
+              <option value="4">De iardes a metres</option>
+           </optgroup>
+        </select>
+        <span id="vSeleccion"></span>
+     </p>
+     <p><button onclick="Calcular()">Convertir</button></p>
+     <p id="resultat"></p>
+
+     <script>
+        function Calcular() {
+            let number = Number(document.getElementById("NUMBER").value);
+            let seleccion = document.getElementById("seleccion").value;
+            let resultat = " ";
+            
+            switch (seleccion) {
+                case "1":
+                    // Metres a peus (1 metre = 3.28084 peus)
+                    resultat = (number * 3.28084).toFixed(4) + " peus"; //el toFixed és per mostrar els decimals que es volen
+                    break;
+                case "2":
+                    // Peus a metres (1 peu = 0.3048 metres)
+                    resultat = (number * 0.3048).toFixed(4) + " metres";
+                    break;
+                case "3":
+                    // Metres a iardes (1 metre = 1.09361 iardes)
+                    resultat = (number * 1.09361).toFixed(4) + " iardes";
+                    break;
+                case "4":
+                    // Iardes a metres (1 iarda = 0.9144 metres)
+                    resultat = (number * 0.9144).toFixed(4) + " metres";
+                    break;
+            }
+
+            document.getElementById("resultat").innerHTML = "Resultat: " + resultat;
+        }
+     </script>
+</body>
+</html>

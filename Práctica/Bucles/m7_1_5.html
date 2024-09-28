@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>(M7.1.) Exercici 5. Nombres parells del 100 al 0</h1>
+    <h3>Mostra per pantalla els nombres parells compresos entre el 100 i el 0 en ordre descendent.</h3>
+    <p><button onclick="nombresParells()">MOSTRAR NOMBRES PARELLS</button></p>
+    <p id="RESULT"></p>
+
+    <script>
+        function nombresParells(){
+            let parells= []
+            for(let i=100; i>0;i-=2){
+                parells.push(i);
+                
+            }
+            document.getElementById("RESULT").innerHTML= parells;
+        }
+    </script>
+</body>
+</html>

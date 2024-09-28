@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        label {
+           display: inline-block;
+           width: 10em;
+           text-align: left;
+        }
+        p {
+           margin-left: 2em;
+        }
+        button {
+           margin-left: 10em;
+           
+        }
+  
+        span {
+           margin-left: 10em;
+           color: blue;
+        }
+  
+        fieldset {
+           display: inline-block;
+        }
+  
+        input,
+        select {
+           font-family: 'Open Sans', Tahoma, 'Segoe UI', sans-serif;
+           color: rgb(16, 87, 43);
+           width: 25em;
+        }
+  
+        input[type=radio],
+        input[type=checkbox],
+        input[type=color] {
+           width: 2em;
+        }
+  
+        input[type=button] {
+           width: 5em;
+        }
+     </style>
+    <title>Comanda</title>
+</head>
+<body>
+    <h1>(M4) Exercici 6. Comanda correcta?</h1>
+    <p>Crea un programa per a un restaurant on tenen tres plats (carn, pasta "amb gluten" i risotto "amb lactosa"). <br>
+
+        El programa ha de demanar el plat que vol l'usuari/ària, però també ha de demanar si aquest/a té cap preferència o intolerància (vegà, intolerància al gluten o intolerància a la lactosa).<br>
+        
+        Si la persona demana un plat "que pot menjar" mostrarem per consola el missatge "perfecte, comanda correcta", si no, es mostrarà el missatge "vostè no pot menjar aquest plat".
+    </p>
+    <h2>MENÚ DIARI</h2>
+    <hr>
+      <p><label for="opciones">Selecciona el plat que vols:</label><br>
+         <input name="opciones" value="carn" id="carn" type="radio"> Carn<br>
+         <input name="opciones" value="pasta" id="pasta" type="radio"> Pasta<br>
+         <input name="opciones" value="risotto" id="risotto" type="radio" checked> Risotto
+         <span id="vOpciones"></span>
+      </p>
+
+      <p><label for="intolerancias">Selecciona si tens alguna intolerància:</label><br></p>
+      <p><label for="checaGluten">Gluten:</label>
+        <input id="checaGluten" type="checkbox">
+        <span id="vChecaGluten"></span>
+     </p>
+     <p><label for="checaLactosa">Lactosa:</label>
+        <input id="checaLactosa" type="checkbox">
+        <span id="vChecaLactosa"></span>
+     </p>
+     <p><label for="intolerancias">Altres opcions:</label><br></p>
+      <p><label for="checaVega">Vegà:</label>
+        <input id="checaVega" type="checkbox">
+        <span id="vChecaVega"></span>
+     </p>
+     <p><button type ="button" onclick="Comprobar()">
+        <img src="https://cdn-icons-png.flaticon.com/512/6270/6270448.png" alt="Check image" width="50" height="50" />
+     </button>
+  </p>
+  <p id="vComprobar"></p>
+  <script>
+    function Comprobar(){
+        let plat = document.querySelector('input[name="opciones"]:checked').value;
+        let gluten = document.getElementById("checaGluten").checked;
+        let lactosa = document.getElementById("checaLactosa").checked;
+        let vegan = document.getElementById("checaVega").checked;
+
+        document.getElementById("vOpciones").innerHTML = plat;
+
+        document.getElementById("vChecaGluten").innerHTML = gluten;
+        document.getElementById("vChecaLactosa").innerHTML = lactosa;
+
+        document.getElementById("vChecaVega").innerHTML = vegan;
+        let message = " ";
+
+        switch(plat){
+            case "carn":
+                message= (vegan)? "vostè no pot menjar aquest plat": "perfecte, comanda correcta";
+                break;
+
+            case "pasta":
+                message= (gluten)? "vostè no pot menjar aquest plat": "perfecte, comanda correcta";
+                break;
+
+            case "risotto":
+                message= (lactosa)? "vostè no pot menjar aquest plat": "perfecte, comanda correcta";
+                break;
+                
+        }
+        document.getElementById("vComprobar").innerHTML = message;
+    }
+  </script>
+
+</body>
+</html>

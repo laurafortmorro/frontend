@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>(M7.1.) Exercici 1. Tres nombres enters</h1>
+    <h3>Crea un programa que sol·liciti a l'usuari/ària que introdueixi tres nombres enters per teclat i mostri per pantalla el major dels tres, el menor dels tres o si hi ha dos números iguals.</h3>
+    <hr>
+    <p>
+        <label>Introduce 3 números</label><br>
+        <input type="number" id="NUMBER1">
+        <input type="number" id="NUMBER2">
+        <input type="number" id="NUMBER3">
+    </p>
+    <p><button id="RESULT" onclick="Result()">Result</button></p>
+    <p id="NUMBERMAX"></p>
+    <p id="NUMBERMIN"></p>
+    <p id="NUMBERIGUAL"></p>
+
+    <script>
+        function Result() {
+            let number1 = parseInt(document.getElementById("NUMBER1").value);
+            document.getElementById("NUMBER1").value = number1; //serveix perquè a la pantalla es canvii el número que s'ha introduit
+            let number2 = parseInt(document.getElementById("NUMBER2").value);
+            document.getElementById("NUMBER2").value = number2; 
+            let number3 = parseInt(document.getElementById("NUMBER3").value);
+            document.getElementById("NUMBER3").value = number3; 
+
+            let numberMax = 0;
+            let numberMin = 0;
+            let numberIgual = "No hi ha 2 números iguals.";
+
+            // Comprovar el major
+            if (number1 >= number2 && number1 >= number3) {
+                numberMax = number1;
+            } else if (number2 >= number1 && number2 >= number3) {
+                numberMax = number2;
+            } else {
+                numberMax = number3;
+            }
+
+            // Comprovar el menor
+            if (number1 <= number2 && number1 <= number3) {
+                numberMin = number1;
+            } else if (number2 <= number1 && number2 <= number3) {
+                numberMin = number2;
+            } else {
+                numberMin = number3;
+            }
+
+            // Comprovar si hi ha 2 nombres iguals
+            if (number1 === number2 && number1 === number3) {
+                numberIgual = "Els tres números són iguals.";
+            } else if (number1 === number2) {
+                numberIgual = "Es repeteix el nombre " + number1 + ".";
+            } else if (number1 === number3) {
+                numberIgual = "Es repeteix el nombre " + number1 + ".";
+            } else if (number2 === number3) {
+                numberIgual = "Es repeteix el nombre " + number2 + ".";
+            }
+
+            // Mostramos los resultados
+            document.getElementById("NUMBERMAX").innerHTML = "El major dels 3 nombres és: " + numberMax;
+            document.getElementById("NUMBERMIN").innerHTML = "El nombre més petit és: " + numberMin;
+            document.getElementById("NUMBERIGUAL").innerHTML = numberIgual;
+        }
+    </script>
+
+</body>
+</html>

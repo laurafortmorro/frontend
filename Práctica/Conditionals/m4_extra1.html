@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Divident i Divisor</title>
+</head>
+<body>
+    <h1>(M4) Exercici EXTRA 1. Calcula si els números són múltiples o no.</h1>
+    <h3>Fes un programa que pregunti a l'usuari/ària dos nombres enters al qual anomenaràs dividend i divisor respectivament.</h3>
+    <p>Dividend: <input type="number" id="dividend"></p>
+    <p>Divisor: <input type="number" id="divisor"></p>
+    <p><button onclick="validar()">RESULT</button></p>
+    <p id="RESULT"></p>
+
+
+    <script>
+        function main(){
+            let dividend = parseInt(document.getElementById("dividend").value);
+            let divisor = parseInt(document.getElementById("divisor").value);
+            let message= " ";
+
+            if(dividend%divisor==0){
+                message= dividend + " es múltiple de " + divisor;
+            }else{
+                message= dividend + " no es múltiple de " + divisor;
+
+            }
+            document.getElementById("RESULT").innerHTML= message;
+        }
+        function validar(){
+            let valor; //lo usamos para que las validaciones en el if queden más cortas
+            let validado = true;
+            let msgError = "Els camps en vermell tenen la informació incorrecte\n"
+            msgError += "Corregeix els valors i premeu de nou el botó"
+
+            valor = document.getElementById("dividend").value; 
+            if (valor ==="" ||isNaN(valor)) {
+                  validado = false;
+                  document.getElementById("dividend").style.backgroundColor = "#E6B0AA";   
+            } else {
+                  document.getElementById("dividend").style.backgroundColor = "white";
+            }
+
+            valor = document.getElementById("divisor").value;
+            if (isNaN(valor) || valor<2 || valor >7) {
+                validado = false;
+                  document.getElementById("divisor").style.backgroundColor = "#E6B0AA";
+                  msgError= "El divisor ha de ser entre 2 i 7"
+                   
+            } else {  
+                  document.getElementById("divisor").style.backgroundColor = "white";
+    
+            }
+ 
+            // abortar si todo no está validado
+            if (!validado) {
+                  alert(msgError);
+            } else {
+                  main();
+            }
+
+        }
+        
+    </script>
+</body>
+</html>

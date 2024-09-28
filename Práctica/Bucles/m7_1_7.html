@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>(M7.1.) Exercici 7. Dibuixa un quadrat.</h1>
+    <h3>Fer un programa on l'usuari/ària introdueix per pantalla un caràcter i un número. El programa imprimeix per pantalla un quadrat amb la mida i el caràcter introduïts per l'usuari/ària.</h3>
+    <p>Introdueix un número: <input type="number" id="NUMBER"></p>
+    <p>Introdueix un caracter: <input type="text" id="CARACTER"></p>
+    <p><button onclick="cuadrado()">Crear cuadrado</button></p>
+    <p id="RESULT"></p>
+    <script>
+        function cuadrado(){
+            let number= document.getElementById("NUMBER").value;
+            let caracter= document.getElementById("CARACTER").value;
+            let cuadrado= []
+
+            for(let i=0; i<number;i++){
+                let fila= "";
+                for(let j=0; j<number;j++){
+                    fila+=caracter;
+                }
+                cuadrado.push(fila);
+            }
+            document.getElementById("RESULT").innerHTML= cuadrado;
+        }
+    </script>
+
+
+    
+</body>
+</html>

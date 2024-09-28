@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedra, Paper o Tisora</title>
+    <style>
+        * {
+            font-family: 'Nunito', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-size: 16px;
+            margin: 2em auto;
+            max-width: 600px;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #4a90e2;
+        }
+
+        select, button {
+            padding: 10px 15px;
+            font-size: 1rem;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid #4a90e2;
+            background-color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+            border-color: #357ABD;
+        }
+
+        p#RESULT {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        p#RESULT.ganador {
+            color: green;
+        }
+
+        p#RESULT.perdedor {
+            color: red;
+        }
+
+        p#RESULT.empat {
+            color: orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Juguem a Pedra, Paper o Tisora!</h1>
+    <div>
+        <p>
+            <label for="seleccion">Escull una opció: </label>
+            <select id="seleccion">
+                <option>Pedra</option>
+                <option>Paper</option>
+                <option selected>Tisora</option>
+            </select>
+        </p>
+        <p><button onclick="main()">A JUGAR!</button></p>
+        <p id="ALEATORIO"></p>
+        <p id="RESULT"></p>
+    </div>
+
+    <script>
+        function main() {
+            let seleccion = document.getElementById("seleccion").value;
+            let aleatorio = Math.ceil(Math.random() * 3);
+            let resultado = " ";
+            let resultElement = document.getElementById("RESULT");
+
+            switch (seleccion) {
+                case "Pedra":
+                    if (aleatorio == 1) {
+                        resultado = "EMPAT";
+                        resultElement.className = "empat";
+                    } else if (aleatorio == 2) {
+                        resultado = "HAS PERDUT";
+                        resultElement.className = "perdedor";
+                    } else {
+                        resultado = "HAS GUANYAT";
+                        resultElement.className = "ganador";
+                    }
+                    break;
+
+                case "Paper":
+                    if (aleatorio == 1) {
+                        resultado = "HAS GUANYAT";
+                        resultElement.className = "ganador";
+                    } else if (aleatorio == 2) {
+                        resultado = "EMPAT";
+                        resultElement.className = "empat";
+                    } else {
+                        resultado = "HAS PERDUT";
+                        resultElement.className = "perdedor";
+                    }
+                    break;
+
+                case "Tisora":
+                    if (aleatorio == 1) {
+                        resultado = "HAS PERDUT";
+                        resultElement.className = "perdedor";
+                    } else if (aleatorio == 2) {
+                        resultado = "HAS GUANYAT";
+                        resultElement.className = "ganador";
+                    } else {
+                        resultado = "EMPAT";
+                        resultElement.className = "empat";
+                    }
+                    break;
+            }
+            switch (aleatorio) {
+                case 1:
+                    aleatorio= "Pedra";
+                    break;
+
+                case 2:
+                    aleatorio= "Paper";
+                    break;
+
+                case 3:
+                    aleatorio= "Tisora";
+                    break;
+                
+            }
+            document.getElementById("ALEATORIO").innerHTML= `La màquina ha escollit ${aleatorio}`;
+            resultElement.innerHTML = resultado;
+        }
+    </script>
+</body>
+</html>
